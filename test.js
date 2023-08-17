@@ -15,4 +15,14 @@ describe('API Test', () => {
         done();
       });
   });
+
+  it('should return a welcome message', (done) => {
+    chai.request(app)
+      .get('/')
+      .end((err, res) => {
+        expect(res).to.have.status(400);
+        expect(res.text).to.equal('Hello, GitHub Workflow!');
+        done();
+      });
+  });
 });
